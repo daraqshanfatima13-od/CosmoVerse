@@ -1,0 +1,613 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#02030d;
+color:white;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 60px;
+
+background:#0b1020;
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:25px;
+
+}
+
+nav li{
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+nav li:hover{
+
+color:cyan;
+
+}
+
+.hero{
+
+    height:90vh;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 8%;
+
+}
+
+.hero h2{
+
+color:cyan;
+
+letter-spacing:3px;
+
+margin-bottom:20px;
+
+}
+
+.hero h1{
+
+font-size:70px;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+width:60%;
+
+font-size:20px;
+
+line-height:35px;
+
+margin-bottom:40px;
+
+}
+
+button{
+
+padding:15px 40px;
+
+font-size:20px;
+
+background:cyan;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+transition:.5s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+box-shadow:0 0 30px cyan;
+
+}
+/* ---------- Animated Stars ---------- */
+
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:0.2;
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+100%{
+opacity:0.2;
+}
+}
+/* ---------- Hero Text ---------- */
+
+.hero-text{
+
+    width:50%;
+
+}
+
+/* ---------- Planet ---------- */
+
+.planet-container{
+
+    width:40%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.planet{
+
+    width:330px;
+
+    height:330px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle at 30% 30%,
+    #8be9ff,
+    #1e90ff 40%,
+    #001a4d 80%);
+
+    box-shadow:
+    0 0 40px #00ffff,
+    0 0 80px #00bfff,
+    0 0 120px #0080ff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:rotatePlanet 20s linear infinite;
+}
+
+/* Planet texture */
+
+.planet::before{
+
+content:"";
+
+position:absolute;
+
+width:170%;
+
+height:170%;
+
+background:
+repeating-linear-gradient(
+45deg,
+rgba(255,255,255,0.08) 0px,
+rgba(255,255,255,0.08) 8px,
+transparent 8px,
+transparent 25px
+);
+
+animation:clouds 15s linear infinite;
+
+}
+
+/* Outer Glow */
+
+.planet::after{
+
+content:"";
+
+position:absolute;
+
+inset:-20px;
+
+border-radius:50%;
+
+border:2px solid rgba(0,255,255,0.3);
+
+box-shadow:0 0 60px cyan;
+
+}
+
+/* Rotation */
+
+@keyframes rotatePlanet{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* Clouds */
+
+@keyframes clouds{
+
+from{
+
+transform:translateX(-40%);
+
+}
+
+to{
+
+transform:translateX(40%);
+
+}
+
+}
+/* ---------- Missions Section ---------- */
+
+.missions{
+
+    padding:80px 10%;
+
+}
+
+.missions h2{
+
+    text-align:center;
+
+    font-size:45px;
+
+    margin-bottom:50px;
+
+    color:#00ffff;
+
+}
+
+.mission-card{
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    border-radius:18px;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.4s;
+
+}
+
+.mission-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 25px cyan;
+
+}
+
+.mission-card h3{
+
+    margin-bottom:12px;
+
+    color:#7df9ff;
+
+}
+
+.mission-card p{
+
+    line-height:1.8;
+
+    color:#dddddd;
+
+}
+/* ================= Planet Explorer ================= */
+
+.planets{
+
+padding:80px 10%;
+
+}
+
+.planets h2{
+
+text-align:center;
+
+font-size:45px;
+
+color:#00ffff;
+
+margin-bottom:50px;
+
+}
+
+.planet-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+}
+
+.planet-card{
+
+background:rgba(255,255,255,0.08);
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.4s;
+
+border:1px solid rgba(255,255,255,0.15);
+
+backdrop-filter:blur(10px);
+
+}
+
+.planet-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px cyan;
+
+}
+
+.planet-circle{
+
+width:90px;
+
+height:90px;
+
+border-radius:50%;
+
+margin:0 auto 20px;
+
+animation:spin 15s linear infinite;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* Planet Colors */
+
+.mercury .planet-circle{
+
+background:linear-gradient(135deg,#9e9e9e,#6b6b6b);
+
+}
+
+.venus .planet-circle{
+
+background:linear-gradient(135deg,#f8c471,#d68910);
+
+}
+
+.earth .planet-circle{
+
+background:linear-gradient(135deg,#00bfff,#1e90ff);
+
+}
+
+.mars .planet-circle{
+
+background:linear-gradient(135deg,#ff7043,#bf360c);
+
+}
+
+.jupiter .planet-circle{
+
+background:linear-gradient(135deg,#d7b899,#8d6e63);
+
+}
+
+.saturn .planet-circle{
+
+background:linear-gradient(135deg,#ffe082,#d4ac0d);
+
+position:relative;
+
+}
+
+.saturn .planet-circle::after{
+
+content:"";
+
+position:absolute;
+
+width:130px;
+
+height:12px;
+
+border:3px solid rgba(255,255,255,.6);
+
+border-radius:50%;
+
+top:38px;
+
+left:-20px;
+
+transform:rotate(-20deg);
+
+}
+
+.uranus .planet-circle{
+
+background:linear-gradient(135deg,#7fdbff,#40c4ff);
+
+}
+
+.neptune .planet-circle{
+
+background:linear-gradient(135deg,#3f51b5,#1a237e);
+
+}
+
+.planet-card h3{
+
+margin-bottom:15px;
+
+color:#7df9ff;
+
+}
+
+.planet-card p{
+
+color:#dddddd;
+
+line-height:1.6;
+
+font-size:15px;
+
+}
+
+/* ================= Contact Section ================= */
+
+.contact{
+
+padding:80px 10%;
+
+text-align:center;
+
+}
+
+.contact h2{
+
+font-size:45px;
+
+color:#00ffff;
+
+margin-bottom:20px;
+
+}
+
+.contact p{
+
+color:#dddddd;
+
+margin-bottom:40px;
+
+line-height:1.7;
+
+}
+
+.contact-container{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.contact-box{
+
+background:rgba(255,255,255,0.08);
+
+padding:25px;
+
+width:280px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,255,255,0.15);
+
+backdrop-filter:blur(10px);
+
+transition:0.4s;
+
+}
+
+.contact-box:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px cyan;
+
+}
+
+.contact-box h3{
+
+color:#7df9ff;
+
+margin-bottom:15px;
+
+}
+
+footer{
+
+background:#0b1020;
+
+padding:20px;
+
+text-align:center;
+
+margin-top:60px;
+
+border-top:1px solid rgba(255,255,255,0.1);
+
+}
+
+footer p{
+
+color:#bbbbbb;
+
+font-size:15px;
+
+}
